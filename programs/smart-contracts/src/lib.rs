@@ -4,7 +4,7 @@ use anchor_lang::solana_program::entrypoint::ProgramResult;
 declare_id!("HYCWfDk8ZU8SF5oF9CE2CyChgBU6yndn82Umo4iE1Q9T");
 
 #[program]
-pub mod crowdFund {
+pub mod smart_contracts {
     use super::*;
 
     //creates a campaign
@@ -46,6 +46,20 @@ pub mod crowdFund {
         **campaign.to_account_info().try_borrow_mut_lamports()? -= amount;
         **user.to_account_info().try_borrow_mut_lamports()? += amount;
         (&mut ctx.accounts.campaign).amount_withdrawn += amount;
+        Ok(())
+    }
+    //Donate to a campaign
+    pub fn donate(ctx: Context<Donate>, amount: u64) -> ProgramResult {
+        let ix = anchor_lang::solana_program::system_instruction::transfer(
+            &ctx.accounts.user.key(),
+            &ctx.accounts.campaign.key(),
+            amount
+        );
+        anchor_lang::solana_program::program::invoke(
+            &ix,
+            &[ctx.accounts.user.to_account_info(), ctx.accounts.campaign.to_account_info()]
+        );
+        (&mut ctx.accounts.campaign).amount_donated += amount;
         Ok(())
     }
 }
