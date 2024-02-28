@@ -63,3 +63,49 @@ pub mod smart_contracts {
         Ok(())
     }
 }
+
+#[derive(Accounts)]
+pub struct Create<'info> {
+    #[account(
+        init,
+        payer = user,
+        space = 9000,
+        seeds = [b"CROWDFUND".as_ref(), user.key().as_ref()],
+        bump
+    )]
+    pub campaign: Account<'info, Campaign>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct Withdraw<'info> {
+    #[account(mut)]
+    pub campaign: Account<'info, Campaign>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct Donate<'info> {
+    #[account(mut)]
+    pub campaign: Account<'info, Campaign>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[account]
+pub struct Campaign {
+    pub admin: Pubkey,
+    pub name: String,
+    pub description: String,
+    pub target_amount: u64,
+    pub project_url: String,
+    pub progress_update_url: String,
+    pub project_image_url: String,
+    pub category: String,
+    pub amount_donated: u64,
+    pub amount_withdrawn: u64,
+}

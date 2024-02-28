@@ -1,0 +1,28 @@
+name: crowdfund Lint CI
+
+on:
+  push: {}
+  pull_request: {}
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.0
+
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      - name: Install dependencies
+        run: npm i --legacy-peer-deps
+
+      - name: Run ESLint and Prettier
+        run: |
+          npx eslint . 
+          npm run format:check
