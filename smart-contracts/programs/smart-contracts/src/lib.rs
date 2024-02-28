@@ -1,15 +1,25 @@
 use anchor_lang::prelude::*;
+use anchor_lang::solana_program::entrypoint::ProgramResult;
 
-declare_id!("GLxHTC5L9xNL34hGmpQWnLvi1kANyPJmL4FhdeNvmBQq");
+declare_id!("HYCWfDk8ZU8SF5oF9CE2CyChgBU6yndn82Umo4iE1Q9T");
 
 #[program]
-pub mod smart_contracts {
+pub mod crowdFund {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
+    //creates a campaign
+    pub fn create(ctx: Context<Create>, name: String, description: String, target_amount: u64, project_url: String, progress_update_url:String, project_image_url:String, category:String) -> ProgramResult {
+        let campaign = &mut ctx.accounts.campaign;
+        campaign.name = name;
+        campaign.description = description;
+        campaign.target_amount=target_amount;
+        campaign.project_url=project_url;
+        campaign.progress_update_url=progress_update_url;
+        campaign.project_image_url=project_image_url;
+        campaign.category=category;
+        campaign.amount_donated = 0;
+        campaign.amount_withdrawn=0;
+        campaign.admin = *ctx.accounts.user.key;
         Ok(())
     }
 }
-
-#[derive(Accounts)]
-pub struct Initialize {}
