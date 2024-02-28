@@ -22,4 +22,21 @@ pub mod crowdFund {
         campaign.admin = *ctx.accounts.user.key;
         Ok(())
     }
+        //Withdraw from a campaign
+    pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> ProgramResult {
+        let campaign = &mut ctx.accounts.campaign;
+        let user = &mut ctx.accounts.user;
+        //restricts Withdrawal to campaign admin
+        if campaign.admin != *user.key {
+             return Err(ProgramError::IncorrectProgramId);
+         }
+        let rent_balance = Rent::get()?.minimum_balance(campaign.to_account_info().data_len());
+        if **campaign.to_account_info().lamports.borrow() - rent_balance < amount {
+             return Err(ProgramError::InsufficientFunds);
+         }
+        **campaign.to_account_info().try_borrow_mut_lamports()? -= amount;
+        **user.to_account_info().try_borrow_mut_lamports()? += amount;
+        (&mut ctx.accounts.campaign).amount_withdrawn += amount;
+        Ok(())
+        }
 }
