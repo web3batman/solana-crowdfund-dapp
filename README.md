@@ -32,32 +32,32 @@
 
 Exploring the development of a crowdfunding smart contract on the Solana blockchain, leveraging the Rust programming language and the Anchor framework. Crowdfunding has emerged as a popular method for raising funds for various projects, initiatives, and charitable causes, and blockchain technology introduces new possibilities for enhancing transparency, security, and efficiency in this process.
 
-User Interface
-┌───────────────┐ ┌───────────────┐ ┌───────────────┐
-│ Frontend │ │ Frontend │ │ Frontend │
-└───────┬───────┘ └───────┬───────┘ └───────┬───────┘
-│ │ │
-▼ ▼ ▼
-┌───────────────┐ ┌───────────────┐ ┌───────────────┐
-│ User Wallet │ │ User Wallet │ │ User Wallet │
-└───────────────┘ └───────────────┘ └───────────────┘
-│ │ │
-└───────────────┬──────────┼───────────────┬──────────┼───────────────┐
-▼ │ ▼ │ │
-┌───────────────┐ │ ┌───────────────┐ │ Smart │
-│ Solana RPC │ │ │ Solana RPC │ │ Contracts │
-└───────────────┘ │ └───────────────┘ │ │
-│ │ │ │ │
-└──────────┼──────────────┼──────────┼───────────────┘
-▼ ▼ │
-┌─────────────────────────┐ │
-│ Anchor Lang Program │◀──────┘
-└─────────────────────────┘
-│ │ │
-│ │ │
-┌────────────┘ │ └────────────┐
-│ │ │
-┌────────────────┐┌────────────────┐┌────────────────┐
-│ Create ││ Withdraw ││ Donate │
-│ Function ││ Function ││ Function │
-└────────────────┘└────────────────┘└────────────────┘
+  User Interface
+  ┌───────────────┐            ┌───────────────┐            ┌───────────────┐
+  │   Frontend    │            │   Frontend    │            │   Frontend    │
+  └───────┬───────┘            └───────┬───────┘            └───────┬───────┘
+          │                            │                            │
+          ▼                            ▼                            ▼
+  ┌───────────────┐            ┌───────────────┐            ┌───────────────┐
+  │   User Wallet │            │   User Wallet │            │   User Wallet │
+  └───────────────┘            └───────────────┘            └───────────────┘
+          │                          │                          │
+          └───────────────┬──────────┼───────────────┬──────────┼──────────────┐
+                          ▼          │               ▼          │              │
+                  ┌───────────────┐  │     ┌───────────────┐    │   Smart      │
+                  │   Solana RPC  │  │     │   Solana RPC  │    │   Contracts  │
+                  └───────────────┘  │     └───────────────┘    │              │
+                          │          │              │           │              │
+                          └──────────┼──────────────┼──────────┼───────────────┘
+                                     ▼              ▼          │
+                             ┌─────────────────────────┐       │
+                             │   Anchor Lang Program   │◀──────┘
+                             └─────────────────────────┘
+                                       │   │   │
+                                       │   │   │
+                          ┌────────────┘   │   └────────────┐
+                          │                │                │
+                 ┌────────────────┐┌────────────────┐┌────────────────┐
+                 │    Create      ││   Withdraw     ││    Donate      │
+                 │    Function    ││   Function     ││   Function     │
+                 └────────────────┘└────────────────┘└────────────────┘
