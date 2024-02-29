@@ -28,11 +28,11 @@
     <a href="#-team">Team</a>
 </p>
 
-## 📝 About
+## 📝 About.
 
 Exploring the development of a crowdfunding smart contract on the Solana blockchain, leveraging the Rust programming language and the Anchor framework. Crowdfunding has emerged as a popular method for raising funds for various projects, initiatives, and charitable causes, and blockchain technology introduces new possibilities for enhancing transparency, security, and efficiency in this process.
 
-## 🏛️ Architecture
+## 🏛️ Architecture.
 
 <p align="center">
   <br>
@@ -40,7 +40,7 @@ Exploring the development of a crowdfunding smart contract on the Solana blockch
   <br>
 </p>
 
-## 🎯 Features
+## 🎯 Features.
 
 The crowdfunding smart contract implemented using the Anchor framework on the Solana blockchain offers a range of features designed to enhance the fundraising experience while ensuring transparency, security, and efficiency.
 
@@ -103,7 +103,103 @@ CrowdFund/
 ├                   ├── src/
 ├                        ├── lib.rs  (contains smart contracts code)
 ├── tests/
-     ├── smart-contracts.ts (contains test cases for smart contracts)
-
+     ├── smart-contracts.test.rs (contains small test cases for smart contracts)
 
 ```
+
+## 📚 Documentation.
+
+<sup>[(Back to top)](#------------------------)</sup>
+
+This documentation provides an overview of the smart contracts implemented in this project. The smart contracts are designed to facilitate crowdfunding campaigns on the Solana blockchain. Users can create campaigns, donate to existing campaigns, withdraw funds from campaigns, and retrieve campaign information.
+
+Requirements
+
+- Rust
+- Solana CLI
+- Anchor CLI
+- Node.js
+- npm
+
+Usage
+Creating a Campaign
+To create a campaign, users can call the create method with the required parameters:
+
+```rust
+pub fn create(
+    ctx: Context<Create>,
+    name: String,
+    description: String,
+    target_amount: u64,
+    project_url: String,
+    progress_update_url: String,
+    project_image_url: String,
+    category: String
+) -> ProgramResult;
+```
+
+Donating to a Campaign
+To donate to a campaign, users can call the donate method with the required parameters:
+
+```rust
+pub fn donate(ctx: Context<Donate>, campaign_id: u64, amount: u64) -> ProgramResult;
+```
+
+Withdrawing Funds from a Campaign
+To withdraw funds from a campaign, users can call the withdraw method with the required parameters:
+
+```rust
+pub fn withdraw(ctx: Context<Withdraw>, campaign_id: u64, amount: u64) -> ProgramResult;
+```
+
+Retrieving Campaign Information
+To retrieve information about a specific campaign, users can call the get_campaign method with the required parameters:
+
+```rust
+pub fn get_campaign(ctx: Context<GetCampaign>, campaign_id: u64) -> ProgramResult;
+```
+
+Building, Testing and Deploying the Smart Contract.
+[![Screenshot-2024-02-29-at-1-35-33-PM.png](https://i.postimg.cc/m2nqyyYD/Screenshot-2024-02-29-at-1-35-33-PM.png)](https://postimg.cc/vcW3Q9SF)
+
+To build the smart contract, run the following command:
+
+```sh
+anchor build
+```
+
+To test the smart contract, run the following command:
+
+```sh
+anchor test
+```
+
+To deploy the smart contract, run the following command:
+
+```sh
+anchor deploy
+```
+
+## 👍 Contributing.
+
+We believe in the power of collaboration and welcome contributions from all members of the community irrespective of your domain knowledge and level of expertise, your input is valuable. Here are a few ways you can get involved:
+
+- Report bugs and issues
+- Suggest new features and enhancements
+- Contribute to the codebase by submitting pull requests
+- Share the project with your network
+- Provide feedback and suggestions for improvement
+
+## 👥 Team.
+
+- Samuel Tosin
+
+## 👨🏽‍🍳 Developer Resources.
+
+- [Solana Documentation](https://docs.solana.com/)
+- [Anchor Documentation](https://project-serum.github.io/anchor/)
+- [Rust Documentation](https://www.rust-lang.org/)
+
+## 📜 License.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
