@@ -29,49 +29,20 @@
 </p>
 
 ## 📝 About
+
 Exploring the development of a crowdfunding smart contract on the Solana blockchain, leveraging the Rust programming language and the Anchor framework. Crowdfunding has emerged as a popular method for raising funds for various projects, initiatives, and charitable causes, and blockchain technology introduces new possibilities for enhancing transparency, security, and efficiency in this process.
 
 ## 🏛️ Architecture
+
 <p align="center">
   <br>
       <img src="./public/system-design.png" alt="system design"/>
   <br>
 </p>
 
-```sh
--   User Interface
-  ┌───────────────┐            ┌───────────────┐            ┌───────────────┐
-  │   Frontend    │            │   Frontend    │            │   Frontend    │
-  └───────┬───────┘            └───────┬───────┘            └───────┬───────┘
-          │                          │                          │
-          ▼                          ▼                          ▼
-  ┌───────────────┐            ┌───────────────┐            ┌───────────────┐
-  │   User Wallet │            │   User Wallet │            │   User Wallet │
-  └───────────────┘            └───────────────┘            └───────────────┘
-          │                          │                          │
-          └───────────────┬──────────┼───────────────┬──────────┼───────────────┐
-                          ▼          │              ▼          │               │
-                  ┌───────────────┐   │     ┌───────────────┐   │   Smart      │
-                  │   Solana RPC  │   │     │   Solana RPC  │   │   Contracts  │
-                  └───────────────┘   │     └───────────────┘   │               │
-                          │          │              │          │               │
-                          └──────────┼──────────────┼──────────┼───────────────┘
-                                     ▼              ▼          │
-                             ┌─────────────────────────┐       │
-                             │   Anchor Lang Program   │◀──────┘
-                             └─────────────────────────┘
-                                       │   │   │
-                                       │   │   │
-                          ┌────────────┘   │   └────────────┐
-                          │                │                │
-                 ┌────────────────┐┌────────────────┐┌────────────────┐
-                 │    Create      ││   Withdraw     ││    Donate      │
-                 │    Function    ││   Function     ││   Function     │
-                 └────────────────┘└────────────────┘└────────────────┘
-```
-
 ## 🎯 Features
-The crowdfunding smart contract implemented using the Anchor framework on the Solana blockchain offers a range of features designed to enhance the fundraising experience while ensuring transparency, security, and efficiency. 
+
+The crowdfunding smart contract implemented using the Anchor framework on the Solana blockchain offers a range of features designed to enhance the fundraising experience while ensuring transparency, security, and efficiency.
 
 1. Campaign Creation:
 
@@ -122,6 +93,6 @@ category : "which type of campaign"
 8. Immutable Record Keeping:
 
 - Transactional data and campaign details recorded on the Solana blockchain are immutable and tamper-proof, providing a permanent and verifiable record of fundraising activities.
-Immutable records enhance auditability, mitigating the risk of fraud or data manipulation and fostering trust among stakeholders.
+  Immutable records enhance auditability, mitigating the risk of fraud or data manipulation and fostering trust among stakeholders.
 
-## 
+##
