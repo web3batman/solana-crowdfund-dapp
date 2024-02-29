@@ -95,4 +95,15 @@ category : "which type of campaign"
 - Transactional data and campaign details recorded on the Solana blockchain are immutable and tamper-proof, providing a permanent and verifiable record of fundraising activities.
   Immutable records enhance auditability, mitigating the risk of fraud or data manipulation and fostering trust among stakeholders.
 
-##
+## 🗂️ Folder Structure.
+
+```sh
+CrowdFund/
+├── programs/smart-contracts/
+├                   ├── src/
+├                        ├── lib.rs  (contains smart contracts code)
+├── tests/
+     ├── smart-contracts.ts (contains test cases for smart contracts)
+
+
+```
