@@ -9,7 +9,7 @@
 <h3 align="center">Building a Crowdfunding DApp on Solana with Anchor and Rust</h3>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript version">
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript version" height="16">
         <img src="https://img.shields.io/badge/Built_With-Anchor-red" alt="Built with Anchor">
     <img src="https://img.shields.io/badge/Rust-red?logo=rust" alt="Rust">
     <img src="https://img.shields.io/badge/Solana-lightblue?logo=solana" alt="Solana">
